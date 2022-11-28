@@ -6,8 +6,9 @@ import './App.css';
 import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import Bot from './components/Bot';
 import Footer from './components/Footer';
+import Chatbox from './components/ChatBox';
+import Chatpopup from './components/ChatPopup';
 
 
 const App = () => (
@@ -17,7 +18,7 @@ const App = () => (
       <Route path="/" element={<Home />} />
       <Route path="/exercise/:id" element={<ExerciseDetail />} />
     </Routes>
-    <Bot />
+    <Chatpopup />
     <Footer />
   </Box>
 );
