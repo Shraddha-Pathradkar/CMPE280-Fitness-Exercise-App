@@ -7,16 +7,19 @@ import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Chatbox from './components/ChatBox';
 import Chatpopup from './components/ChatPopup';
+import GoogleMaps from './components/GoogleMaps';
+// import LoginPage from './components/LoginPage';
 
 
 const App = () => (
   <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
     <Navbar />
     <Routes>
+
       <Route path="/" element={<Home />} />
       <Route path="/exercise/:id" element={<ExerciseDetail />} />
+      <Route path="/nearby-gym" element={<GoogleMaps />} />
     </Routes>
     <Chatpopup />
     <Footer />

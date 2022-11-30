@@ -1,50 +1,102 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
+import BookOnlineAppointment from "./BookOnlineAppointment";
+import GoogleMaps from "./GoogleMaps";
+import RequestCallBack from "./RequestCallBack";
 
 class Chatbox extends React.Component {
-  render() {
-    return (
-      <ChatBot
-        steps={[
-          {
-            id: "1",
-            message: "Hola! need Help?",
-            trigger: "2"
-          },
-          {
-            id: "2",
-            user: true,
-            trigger: "3"
-          },
-          {
-            id: "3",
-            message: "{previousValue}, okay",
-            trigger: "4"
-          },
 
-          {
-            id: "4",
-            user: true,
-            trigger: "5"
-          },
-          {
-            id: "5",
-            message: "okay",
-            trigger: "6"
-          },
-          {
-            id: "6",
-            user: true,
-            trigger: "7"
-          },
-          {
-            id: "7",
-            message: "okay",
-            end: true
-          }
-        ]}
-      />
+
+  render() {
+    const CustomStep = ({ triggerNextStep }) => {
+      return (
+        <Link to={"/nearby-gym"} >Show gold gym near me.</Link>
+      );
+    };
+
+    const theme = {
+      background: '#f5f8fb',
+      fontFamily: 'Helvetica Neue',
+      headerBgColor: 'red',
+      headerFontColor: '#fff',
+      headerFontSize: '15px',
+      botBubbleColor: 'red',
+      botFontColor: '#fff',
+      userBubbleColor: '#fff',
+      userFontColor: '#4a4a4a',
+    };
+    const steps = [
+      {
+        id: "Greet",
+        message: "Hello, Welcome to golds gym!!",
+        trigger: "1"
+      },
+      {
+        id: '1',
+        message: 'What is your name?',
+        trigger: '2',
+      },
+      {
+        id: '2',
+        user: true,
+        trigger: '3',
+      },
+      {
+        id: '3',
+        message: 'Hi {previousValue}, nice to meet you!',
+        trigger: '1a',
+      },
+      {
+        id: '1a',
+        message: 'How can we help you ?',
+        trigger: '2a',
+      },
+      {
+        id: '2a',
+        options: [
+          { value: 2, label: 'Request a call back', trigger: '3a' },
+          { value: 3, label: 'Book online appointment', trigger: '3b' },
+          { value: 4, label: 'Find us near by', trigger: '3c' },
+
+        ],
+      },
+      {
+        id: '3a',
+        component: (
+          <div>
+            <RequestCallBack />
+          </div>
+        ),
+        // trigger: '1a',
+      },
+      {
+        id: '3b',
+        component: (
+          <div>
+            <BookOnlineAppointment />
+          </div>
+        ),
+        // trigger: '1a',
+      },
+      {
+        id: '3c',
+        component: (
+          <div>
+            <CustomStep />
+          </div>
+        )
+      }
+    ];
+
+    return (
+      <ThemeProvider theme={theme}>
+
+        <ChatBot
+          steps={steps}
+        />
+      </ThemeProvider>
     );
   }
 }

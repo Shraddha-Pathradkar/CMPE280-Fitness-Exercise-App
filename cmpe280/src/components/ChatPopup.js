@@ -42,9 +42,11 @@ export default function Chatpopup(prop) {
                     position: "fixed",
                     bottom: "60px",
                     right: "100px"
+
                 }}
                 color="error"
                 size="large"
+
             >
                 ❮ Chat with us
             </Button>
