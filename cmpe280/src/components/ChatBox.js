@@ -10,12 +10,15 @@ class Chatbox extends React.Component {
 
 
   render() {
+<<<<<<< HEAD
     const CustomStep = ({ triggerNextStep }) => {
       return (
         <Link to={"/nearby-gym"} >Show gold gym near me.</Link>
       );
     };
 
+=======
+>>>>>>> 1a753b2e8328d5668c9238f9e9945116cca6beb7
     const theme = {
       background: '#f5f8fb',
       fontFamily: 'Helvetica Neue',
