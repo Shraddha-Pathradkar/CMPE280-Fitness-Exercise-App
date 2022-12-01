@@ -60,18 +60,18 @@ const PieChart = () => {
                 right: "40px",
                 top: "30px",
                 width: "700px",
-                height: "900px",
-                marginTop: "-30px",
-                paddingLeft: "200px"
+                height: "700px",
+                marginTop: "-10px",
+                paddingLeft: "300px"
             }} fontSize="22px" fontFamily="Alegreya" lineHeight="35px" >Public Exercises Pattern</Typography>
 
             <Pie {...config} style={{
                 position: "absolute",
                 right: "40px",
                 top: "30px",
-                width: "700px",
-                height: "1200px",
-                marginTop: "-330px"
+                width: "500px",
+                height: "500px",
+                marginTop: "-50px"
             }} />
 
 
